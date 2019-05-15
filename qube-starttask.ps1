@@ -107,8 +107,8 @@ if ('' -ne $qubeSupervisorIp)
 if ('' -ne $workerCluster)
 {
     Write-Host "Setting worker cluster $workerCluster"
-    (Get-Content $qbConf) -replace '^client_cluster =.*',"client_cluster = $workerCluster" | Set-Content -Force $qbConf
-    (Get-Content $qbConf) -replace '^#client_cluster =.*',"client_cluster = $workerCluster" | Set-Content -Force $qbConf
+    (Get-Content $qbConf) -replace '^worker_cluster =.*',"worker_cluster = $workerCluster" | Set-Content -Force $qbConf
+    (Get-Content $qbConf) -replace '^#worker_cluster =.*',"worker_cluster = $workerCluster" | Set-Content -Force $qbConf
 }
 
 $service = Get-Service "qubeworker" -EA Ignore
